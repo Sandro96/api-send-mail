@@ -17,23 +17,20 @@ app.post('/api/send-email', async (req, res) => {
 
   try {
     const data = {
-      from: 'no-reply@ramirezsandro.com',
-      to: 'ramirezsandro96@gmail.com',
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO,
       subject: subject,
-      text: `Mensaje de ${user_name}: ${message}`,
+      text: Mensaje de ${user_name}: ${message},
     };
-
+    
     const result = await rese.emails.send(data);
 
-    console.log('Correo enviado con éxito:', result);
     res.status(200).json({ message: 'Email enviado con éxito.' });
   } catch (error) {
-    console.error('Error al enviar email:', error);
     res.status(500).json({ message: 'Error al enviar el correo.' });
   }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`));
+const PORT = process.env.PORT;
 
 module.exports = app;
