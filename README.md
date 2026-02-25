@@ -1,65 +1,65 @@
 
-# **API de Envío de Correos**
+# **Email Sending API**
 
-Esta es una API creada con [Node.js](https://nodejs.org/) y [Express](https://expressjs.com/) para enviar correos electrónicos utilizando [Resend](https://resend.com).
-
----
-
-## **Características**
-
-- Envío de correos electrónicos mediante un endpoint seguro.
-- Configuración de credenciales y destinatarios a través de variables de entorno.
-- Uso de [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) para solicitudes de diferentes orígenes.
+This is an API built with [Node.js](https://nodejs.org/) and [Express](https://expressjs.com/) for sending emails using [Resend](https://resend.com).
 
 ---
 
-## **Requisitos previos**
+## **Features**
 
-Antes de comenzar, asegúrate de tener instalado lo siguiente:
-
-- [Node.js](https://nodejs.org) (versión 14 o superior).
-- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/).
-- Una cuenta en [Resend](https://resend.com) para obtener tu API Key.
+- Send emails through a secure endpoint.
+- Configure credentials and recipients via environment variables.
+- [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) support for cross-origin requests.
 
 ---
 
-## **Instalación**
+## **Prerequisites**
 
-1. **Clona este repositorio:**
+Before getting started, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org) (version 14 or higher).
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/).
+- A [Resend](https://resend.com) account to obtain your API Key.
+
+---
+
+## **Installation**
+
+1. **Clone this repository:**
    ```bash
-   git clone https://github.com/tu-usuario/tu-repo.git
+   git clone https://github.com/your-username/your-repo.git
    ```
 
-2. **Navega al directorio del proyecto:**
+2. **Navigate to the project directory:**
    ```bash
-   cd tu-repo
+   cd your-repo
    ```
 
-3. **Instala las dependencias:**
+3. **Install dependencies:**
    ```bash
    npm install
    ```
 
-4. **Configura las variables de entorno:**
+4. **Set up environment variables:**
 
-   Crea un archivo `.env` en la raíz del proyecto y agrega las siguientes variables:
+   Create a `.env` file in the project root and add the following variables:
    ```env
-   RESEND_API_KEY=tu-api-key-de-resend
-   EMAIL_FROM=no-reply@tudominio.com
-   EMAIL_TO=destinatario@correo.com
+   RESEND_API_KEY=your-resend-api-key
+   EMAIL_FROM=no-reply@yourdomain.com
+   EMAIL_TO=recipient@email.com
    PORT=3000
    ```
 
 ---
 
-## **Uso en local**
+## **Local Usage**
 
-1. **Inicia el servidor:**
+1. **Start the server:**
    ```bash
    node api/index.js
    ```
 
-2. **Accede a la API en:**
+2. **Access the API at:**
    ```
    http://localhost:3000
    ```
@@ -70,8 +70,8 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 ### **1. `GET /`**
 
-- **Descripción:** Verifica que el servidor esté funcionando correctamente.
-- **Respuesta de ejemplo:**
+- **Description:** Verifies that the server is running correctly.
+- **Example response:**
   ```json
   {
     "message": "Express on Vercel!!"
@@ -82,52 +82,52 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 ### **2. `POST /api/send-email`**
 
-- **Descripción:** Envía un correo electrónico utilizando Resend.
-- **Cuerpo de la solicitud:** Debe enviarse en formato JSON.
+- **Description:** Sends an email using Resend.
+- **Request body:** Must be sent in JSON format.
   ```json
   {
-    "user_name": "Tu Nombre",
-    "user_email": "tu-email@gmail.com",
-    "subject": "Asunto del correo",
-    "message": "Este es el contenido del mensaje."
+    "user_name": "Your Name",
+    "user_email": "your-email@gmail.com",
+    "subject": "Email subject",
+    "message": "This is the message content."
   }
   ```
 
-- **Respuesta exitosa:**
+- **Successful response:**
   ```json
   {
-    "message": "Email enviado con éxito."
+    "message": "Email sent successfully."
   }
   ```
 
-- **Errores posibles:**
-  - Si falta algún dato en el cuerpo de la solicitud:
+- **Possible errors:**
+  - If any data is missing from the request body:
     ```json
     {
-      "message": "Error al enviar el correo."
+      "message": "Error sending the email."
     }
     ```
 
 ---
 
-## **Despliegue en Vercel**
+## **Deploy to Vercel**
 
-1. **Configura las variables de entorno en Vercel**:
-   Ve a `Settings > Environment Variables` en tu proyecto en Vercel y añade las siguientes variables:
+1. **Configure environment variables in Vercel**:
+   Go to `Settings > Environment Variables` in your Vercel project and add the following variables:
    - `RESEND_API_KEY`
    - `EMAIL_FROM`
    - `EMAIL_TO`
 
-2. **Despliega el proyecto:**
-   - Desde la línea de comandos:
+2. **Deploy the project:**
+   - From the command line:
      ```bash
      vercel
      ```
 
-   - O conecta tu repositorio en el dashboard de [Vercel](https://vercel.com).
+   - Or connect your repository in the [Vercel](https://vercel.com) dashboard.
 
 ---
 
-## **Licencia**
+## **License**
 
-Este proyecto está licenciado bajo la [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).

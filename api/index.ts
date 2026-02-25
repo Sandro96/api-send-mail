@@ -20,14 +20,14 @@ app.post('/api/send-email', async (req, res) => {
       from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO,
       subject: subject,
-      text: `Mensaje de ${user_name}: ${message}`,
+      text: `Message from ${user_name}: ${message}`,
     };
     
     const result = await rese.emails.send(data);
 
-    res.status(200).json({ message: 'Email enviado con éxito.' });
+    res.status(200).json({ message: 'Email sent successfully.' });
   } catch (error) {
-    res.status(500).json({ message: 'Error al enviar el correo.' });
+    res.status(500).json({ message: 'Error sending the email.' });
   }
 });
 
